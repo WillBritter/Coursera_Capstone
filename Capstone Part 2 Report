@@ -18,4 +18,18 @@ these will have a direct impact on the potential severity of an accident. Where 
 as these inputs will only serve to confuse the model. The data set has not been rebalanced with regards to the accident severity. This is because 
 once all of the variable columns have been filtered and sorted out the remaining dataset is split approximately 2:1 between the severity 
 demarcations. This should be sufficiently common to avoid biasing of the model through random sampling of the dataset in favour of one severity.
+This porblme at its core is a classification problem. Using k-nearest neighbours was inappropriate due to the fact that many of the variables are
+binary in nature. None of the variables used are qualitiative, so using a decision tree was not appropriate. It was decide that logistic regression
+would be best, as a Support Vector Machine algorithm would be quite inefficient given the size of the data set involved (164564 entries in total).
 
+The model developed has a Jaccard Score of 0.723. This indicates that within the test set, the model made correct predictions in 72.3% of cases.
+This is quite good, though there is some room for improvement. It was also calculated that the Log-Loss Score of the model was 0.577. It could be
+seen in the data exploration that the prevalence of Severity 2 incidents was approximately 33%, so the expected Log-Loss value was approximately 
+0.6. The model achieved a lower Log-Loss than the simple estimate, though not by much which suggests that the model could do with some improving.
+Taking a look at the F1 scores, the model shows good performance for predicting Severity 1 incidents with an F1 Score of 0.82. The performance
+for Severity 2 incidents is signifcantly poorer, with an F1 Score of 0.34. This indicates that there is something causing the model to underpredict
+incident severity. Overall the model is good, but there are areas that could do with being improved, notably the recall of Severity 2 Incidents. I 
+would suggest expanding the parameters included to see if there are any confounding factors that have been introduced. 
+
+In conclusion, the Logistic Regression model that was developed is quite good at predicting the presence of Severity 1 incidents but significant
+improvement is needed for the prediction of Severity 2 incidents. It is suggested that further examination of the impacts of other variables is done.
