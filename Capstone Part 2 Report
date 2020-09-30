@@ -1,1 +1,18 @@
+Predicting The Severity Of An Accident From Contextual Data
 
+
+In this project I sought to find a way to predict the severity of an accident from contextual data such as road and weather conditions. 
+This can be used to help inform drivers of the safety of a road trip and enable local emergency services to predict the conditions of people who are caught in accidents,
+which would enable emergency services to be better prepared to handle any injuries that are found.
+
+Data is collected from public records of accidents in the form of csv files (the provided Data-Collisions.csv file, for example).
+This data records informaton such as the severity of accidents, such as the time, location and number of invovled parties to the collision.
+This data will be used to build and train a Machine Learning (ML) model to predict the severity of an accident.
+
+We will need to replace some of these with dummy variables, so that numeric data can be fed to the model. 
+It will be assumed that any blank data is negative and so have a value of 0.
+Any responses that have a total occurrence less than 1000 is excluded as it is felt that this is insufficient data to properly model the impact of these variables on outcome.
+
+
+To train the ML model to predict severity, we will use the data stored in only a subset of the columns in the file.
+This list consists of the JUNCTIONTYPE, PERSONCOUNT, INATTENTIONIND, UNDERINFL,WEATHER, ROADCOND, LIGHTCOND and SPEEDING columns.
